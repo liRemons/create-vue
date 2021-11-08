@@ -1,5 +1,16 @@
 <template>
   <div>
-    <el-button>默认按钮</el-button>
+    <el-input v-model="$store.state.count"></el-input>
+    <el-button @click="handleChange">+</el-button>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    handleChange() {
+      this.$store.commit('increment')
+    }
+  },
+}
+</script>

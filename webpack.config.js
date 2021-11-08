@@ -18,9 +18,9 @@ module.exports = (env) => {
     entry: path.resolve(__dirname, "src/main.js"),
     mode,
     output: {
-      filename: "index.js",
+      filename: "[name].js",
       // publicPath: "/",
-      // clean: true,
+      clean: true,
       path: path.resolve(__dirname, "dist"),
     },
     module: {
@@ -34,7 +34,8 @@ module.exports = (env) => {
     },
     externals: {
       vue: "Vue",
-      // "element-ui": "element-ui",
+      "element-ui": "ELEMENT",
+      vuex:'Vuex'
     },
     plugins: [
       new VueLoaderPlugin(),
@@ -60,7 +61,7 @@ module.exports = (env) => {
       compress: true,
       port: 3033,
       host: "127.0.0.1",
-      // open: true,
+      open: true,
       hot: true,
     },
     devtool: mode === "development" ? "eval-source-map" : "eval",
